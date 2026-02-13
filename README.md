@@ -1,22 +1,206 @@
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9C%93-brightgreen.svg)](https://github.com/rodneymanor/vibe-check-mcp)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-purple.svg)](https://modelcontextprotocol.io)
+
 # vibe-check-mcp
 
-An MCP server that keeps AI coding agents focused. Provides pre-implementation validation, interactive spec generation, diff review, and a persistent memory bank to prevent over-building and scope creep.
+**"You asked for a button. Your AI agent refactored the entire app."**
 
-**No LLM calls inside** — pure deterministic logic. The AI agent provides the intelligence; vibe-check provides the discipline.
+Stop AI coding agents from over-building, losing context, and going rogue. **vibe-check** is an MCP server that gives your agent discipline — so you can vibe-code without the chaos.
 
-## The Problem
+Zero LLM calls. Zero API keys. Pure deterministic guardrails.
 
-AI coding agents over-build. They add unnecessary abstractions, install unneeded dependencies, refactor code that doesn't need refactoring, and create files nobody asked for. They also lose project context between sessions.
+---
 
-**vibe-check** solves both problems with 6 tools that enforce structured reasoning before, during, and after code changes — plus a persistent memory bank that keeps project context alive.
+## The Problem Everyone Has
+
+You say: *"Add a dark mode toggle."*
+
+Your AI agent delivers:
+- A new design system with 47 CSS custom properties
+- A refactored component library you didn't ask for
+- 3 new utility files and an abstraction layer
+- A "bonus" settings page with persistence
+
+**Sound familiar?**
+
+## Before & After
+
+```
+ WITHOUT vibe-check                        WITH vibe-check
+ ─────────────────────                     ────────────────────
+ You: "Add a login page"                   You: "Add a login page"
+
+ Agent: Sure! I'll also...                 Agent: pre_check says:
+  - Set up an auth provider                  Approved: Login.tsx, login.css
+  - Create a user dashboard                  Forbidden: auth/, dashboard/
+  - Add role-based permissions               Complexity: Low
+  - Refactor the router                      Red flags: None
+  - Install 5 new packages                   Score: 9/10 — Proceed.
+  - Create 15 files
+                                            Agent builds exactly what you asked for.
+ Result: 15 files changed                  Result: 2 files changed
+ "Wait... I just wanted a form"            "Perfect. Exactly what I needed."
+```
+
+---
+
+## What You Get
+
+- **Scope lock** — Your agent can only touch files you approved
+- **Drift detection** — Catch unauthorized changes before they hit your codebase
+- **Persistent memory** — Project context survives across sessions, no more repeating yourself
+- **Structured specs** — Turn vague ideas into clear, scoped feature specs with guardrails
+- **Zero config** — No API keys, no accounts, no network calls. Install and go.
+
+---
 
 ## Quick Start
 
-1. Install the MCP server (see [Installation](#installation))
-2. Run `memory_bank_init` to set up project context and workflow rules
-3. Start building — the workflow rules in `.claude/CLAUDE.md` will guide your agent automatically
+**One command. 30 seconds. Done.**
 
-## Tools (6)
+```bash
+claude mcp add vibe-check -- npx -y vibe-check-mcp
+```
+
+Then in any project:
+
+```
+> memory_bank_init → sets up project context (run once)
+> pre_check        → validates your plan before coding
+> diff_review      → verifies compliance after coding
+```
+
+That's it. Your agent now has guardrails.
+
+---
+
+## 6 Tools, Zero LLM Calls
+
+Everything is pure deterministic logic. The AI agent provides the intelligence — vibe-check provides the discipline.
+
+| Tool | What It Does |
+|------|-------------|
+| **`pre_check`** | Validates plans before coding. Scans files, rates complexity, flags risks, runs 11 quality checks. Your agent's preflight checklist. |
+| **`spec`** | Turns ideas into structured specs. Asks 6 clarifying questions, then generates user stories, acceptance criteria, and a scoped action plan. |
+| **`diff_review`** | Post-implementation audit. Compares what changed vs. what was approved. Catches scope drift and unauthorized files. |
+| **`memory_bank_init`** | Sets up persistent project context. One command creates structured markdown files your agent reads every session. |
+| **`memory_bank_read`** | Reads project context. Your agent always knows what the project is, what was done last, and what the conventions are. |
+| **`memory_bank_update`** | Keeps context current. Updates automatically on diff review, or manually when the project evolves. |
+
+---
+
+## Works With
+
+- **Claude Code** (CLI)
+- **Claude Desktop**
+- **Codex CLI** (OpenAI)
+- **Any MCP-compatible client**
+
+---
+
+## How It Works
+
+```
+  You have an idea
+       |
+       v
+    [ spec ]  ──→  Clarifying questions → Scoped feature spec
+       |
+       v
+  [ pre_check ]  ──→  File scope lock + 11 quality checks + complexity rating
+       |
+       v
+   You build
+       |
+       v
+ [ diff_review ]  ──→  Compliance audit + auto-update memory bank
+       |
+       v
+  Ship it.
+```
+
+All tools use **file scanning** and **hardcoded heuristics** — no LLM calls, no API keys, no network requests. It auto-detects Next.js, React, Vue, Angular, Express, and 10+ frameworks from your `package.json`.
+
+---
+
+## Installation
+
+### Claude Code (recommended)
+
+```bash
+claude mcp add vibe-check -- npx -y vibe-check-mcp
+```
+
+### Claude Code (local clone)
+
+```bash
+git clone https://github.com/rodneymanor/vibe-check-mcp.git
+cd vibe-check-mcp && npm install && npm run build
+claude mcp add vibe-check -- node /path/to/vibe-check-mcp/build/index.js
+```
+
+### Codex CLI
+
+Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.vibe-check]
+command = "npx"
+args = ["-y", "vibe-check-mcp"]
+```
+
+### Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "vibe-check": {
+      "command": "npx",
+      "args": ["-y", "vibe-check-mcp"]
+    }
+  }
+}
+```
+
+---
+
+## Recommended Workflow
+
+```
+1. memory_bank_init  → Initialize project context + workflow rules (once per project)
+2. spec              → Scope a new feature (interactive, 2-phase)
+3. pre_check         → Validate your plan and lock down file scope
+4. [implement]       → Write the code
+5. diff_review       → Verify compliance + auto-update memory bank
+```
+
+When you run `memory_bank_init`, it writes workflow rules to `.claude/CLAUDE.md` so your agent automatically follows the workflow. If the file already exists, rules are appended without duplication.
+
+---
+
+## Memory Bank
+
+The memory bank is a `memory-bank/` directory in your project root that persists context across sessions:
+
+| File | Purpose | Auto-updated by |
+|------|---------|-----------------|
+| `projectbrief.md` | What the project is, who it's for | Manual |
+| `activeContext.md` | Current scope, priorities, recent changes | `diff_review`, `spec` |
+| `techContext.md` | Stack, dependencies, design system | Manual |
+| `systemPatterns.md` | Architecture patterns, conventions | Manual |
+| `routes.md` | Route contract table | Manual |
+| `progress.md` | Cumulative log of completed work | `diff_review` |
+| `features/*.md` | Feature specs | `spec` |
+
+`pre_check` auto-reads projectbrief + techContext + routes + systemPatterns + activeContext. All tools degrade gracefully if the memory bank doesn't exist.
+
+---
+
+<details>
+<summary><strong>Detailed API Reference</strong></summary>
 
 ### `pre_check` — Pre-implementation validation
 
@@ -60,7 +244,7 @@ Phase 2 call (with answers):
 
 ### `diff_review` — Post-implementation compliance
 
-Compares actual changes against a `pre_check` contract. Checks for unauthorized file changes, route contract violations, missing approved changes, and scope drift. **Auto-updates** `activeContext.md` and `progress.md` on successful compliance.
+Compares actual changes against a `pre_check` contract. Checks for unauthorized file changes, route contract violations, missing approved changes, and scope drift. Auto-updates `activeContext.md` and `progress.md` on successful compliance.
 
 **When to use:** After implementation, before committing.
 
@@ -71,7 +255,7 @@ Input:
   addedFiles: ["src/styles/dark-mode.css"]    (optional)
   deletedFiles: []                            (optional)
   summary: "Added dark mode toggle"
-  projectPath: "/path/to/project"             (optional, needed for route checks + memory bank updates)
+  projectPath: "/path/to/project"             (optional, for route checks + memory bank)
 
 Output:
   compliant: true/false, score, violations[],
@@ -81,7 +265,7 @@ Output:
 
 ### `memory_bank_init` — Initialize memory bank
 
-Creates a `memory-bank/` directory with structured context files. Also writes workflow rules to `.claude/CLAUDE.md` (creates the file if it doesn't exist, appends to it if it does). Call once at project start.
+Creates a `memory-bank/` directory with structured context files. Also writes workflow rules to `.claude/CLAUDE.md`.
 
 ```
 Input:
@@ -126,103 +310,14 @@ Input:
   mode: "append"    (optional — defaults to "replace")
 ```
 
-## Memory Bank
+</details>
 
-The memory bank is a `memory-bank/` directory in your project root that persists project context across sessions:
-
-| File | Purpose | Auto-updated by |
-|------|---------|-----------------|
-| `projectbrief.md` | What the project is, who it's for | Manual |
-| `activeContext.md` | Current scope, priorities, recent changes | `diff_review`, `spec` |
-| `techContext.md` | Stack, dependencies, design system | Manual |
-| `systemPatterns.md` | Architecture patterns, conventions | Manual |
-| `routes.md` | Route contract table | Manual |
-| `progress.md` | Cumulative log of completed work | `diff_review` |
-| `features/*.md` | Feature specs | `spec` |
-
-**Auto-reads:** `pre_check` reads projectbrief + techContext + routes + systemPatterns + activeContext. All tools degrade gracefully if memory bank doesn't exist.
-
-## CLAUDE.md Workflow Rules
-
-When you run `memory_bank_init`, it automatically writes workflow rules to `.claude/CLAUDE.md` in your project. These rules tell the AI agent when to call each tool:
-
-```markdown
-## Vibe Check — Workflow Rules
-
-- At project start, call `memory_bank_init` to set up project context
-- Before any implementation, call `pre_check` to get a change contract
-- After coding, call `diff_review` to verify compliance
-- Use `spec` for any new feature — it will ask clarifying questions first
-- Use `memory_bank_read` to review project context before making changes
-- Use `memory_bank_update` to keep context current as the project evolves
-```
-
-If `.claude/CLAUDE.md` already exists, the rules are appended. If the rules are already present, nothing is duplicated.
-
-## Installation
-
-### Claude Code (local)
-
-```bash
-claude mcp add vibe-check -- node /path/to/vibe-check/build/index.js
-```
-
-### Claude Code (npm)
-
-```bash
-claude mcp add vibe-check -- npx -y vibe-check-mcp
-```
-
-### Codex CLI
-
-Add to `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.vibe-check]
-command = "npx"
-args = ["-y", "vibe-check-mcp"]
-```
-
-### Claude Desktop
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "vibe-check": {
-      "command": "npx",
-      "args": ["-y", "vibe-check-mcp"]
-    }
-  }
-}
-```
-
-## Recommended Workflow
-
-```
-1. memory_bank_init  → Initialize project context + CLAUDE.md rules (once)
-2. spec              → Scope a new feature (interactive, 2-phase)
-3. pre_check         → Validate your plan and lock down file scope
-4. [implement]       → Write the code
-5. diff_review       → Verify compliance (auto-updates memory bank)
-```
-
-## How It Works
-
-All tools use **pure deterministic logic** — no LLM calls, no API keys, no network requests.
-
-- **File scanning**: Recursive directory walk with smart classification (routes, tests, configs, components, utilities)
-- **Framework detection**: Auto-detects Next.js, React, Vue, Angular, Express, and 10+ other frameworks from `package.json`
-- **Pre-check engine**: File-level scope analysis combined with 11 hardcoded plan-quality checks across scope, complexity, duplication, safety, and architecture
-- **Memory bank**: Persistent markdown files that tools auto-read and auto-update
-- **Route contracts**: Route table in `routes.md` checked by `pre_check` and `diff_review`
-- **Interactive specs**: Two-phase spec generation with clarifying questions, user stories, acceptance criteria, and edge cases
+---
 
 ## Development
 
 ```bash
-git clone https://github.com/yourusername/vibe-check-mcp.git
+git clone https://github.com/rodneymanor/vibe-check-mcp.git
 cd vibe-check-mcp
 npm install
 npm run build
@@ -234,6 +329,14 @@ Test with the MCP Inspector:
 npx @modelcontextprotocol/inspector node build/index.js
 ```
 
+---
+
 ## License
 
-MIT
+MIT — use it, fork it, build on it.
+
+---
+
+**If vibe-check saved you from an AI-generated mess, give it a star.**
+
+[Star this repo on GitHub](https://github.com/rodneymanor/vibe-check-mcp)

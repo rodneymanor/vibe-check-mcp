@@ -23,8 +23,16 @@
     "claude",
     "codex"
   ],
-  "author": "",
+  "author": "rodneymanor",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodneymanor/vibe-check-mcp.git"
+  },
+  "homepage": "https://github.com/rodneymanor/vibe-check-mcp",
+  "bugs": {
+    "url": "https://github.com/rodneymanor/vibe-check-mcp/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
     "zod": "^3.25.0"
