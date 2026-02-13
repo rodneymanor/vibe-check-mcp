@@ -1,5 +1,5 @@
 export const siteConfig = {
-    name: "vibe-check-mcp",
+    name: "vibe-check",
     url: "https://github.com/rodneymanor/vibe-check-mcp",
     description: "MCP server that keeps AI coding agents focused. Zero LLM calls. Pure discipline.",
     links: {

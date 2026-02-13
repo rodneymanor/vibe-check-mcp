@@ -15,7 +15,7 @@ export function Footer() {
                         GitHub
                     </Link>
                     <Link
-                        href="https://www.npmjs.com/package/vibe-check-mcp"
+                        href="https://www.npmjs.com/package/mcp-vibe-check"
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                         npm

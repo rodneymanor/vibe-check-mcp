@@ -1,4 +1,4 @@
-# vibe-check-mcp — Vibeathon 2026 Demo Video Script
+# vibe-check — Vibeathon 2026 Demo Video Script
 
 **Target length:** 3:45–4:00 (tight — every second earns votes)
 **Tone:** Confident, conversational, technically credible. Not salesy.
