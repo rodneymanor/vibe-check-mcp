@@ -1,41 +1,32 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/config";
 
 export function Footer() {
-    const { footerLinks, name } = siteConfig;
-
     return (
         <footer className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x  divide-border">
-                {footerLinks.map((section) => (
-                    <div
-                        key={section.title}
-                        className="flex flex-col gap-4 p-8 lg:pt-18"
-                    >
-                        <h3 className="text-sm font-semibold text-foreground">
-                            {section.title}
-                        </h3>
-                        <ul className="flex flex-col gap-3">
-                            {section.links.map((link) => (
-                                <li key={link.id}>
-                                    <Link
-                                        href={link.url}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-
-            </div>
-
-            <div className="border-t border-border py-4">
-                <p className="text-sm text-muted-foreground text-center">
-                    © {new Date().getFullYear()} {name}. MIT License.
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-6 md:p-8">
+                <p className="text-sm text-muted-foreground">
+                    &copy; {new Date().getFullYear()} vibe-check. MIT License.
                 </p>
+                <div className="flex items-center gap-6">
+                    <Link
+                        href="https://github.com/rodneymanor/vibe-check-mcp"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        GitHub
+                    </Link>
+                    <Link
+                        href="https://www.npmjs.com/package/vibe-check-mcp"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        npm
+                    </Link>
+                    <Link
+                        href="https://github.com/rodneymanor/vibe-check-mcp/issues"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        Issues
+                    </Link>
+                </div>
             </div>
         </footer>
     );
