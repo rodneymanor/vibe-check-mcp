@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/logo";
 
 function CopyButton({ text }: { text: string }) {
     const [copied, setCopied] = useState(false);
@@ -42,7 +43,8 @@ export function HeroSection() {
                     Free &amp; open source &middot; MIT License
                 </div>
 
-                {/* Tool name */}
+                {/* Logo + Tool name */}
+                <Logo size="lg" />
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
                     vibe-check
                 </h1>

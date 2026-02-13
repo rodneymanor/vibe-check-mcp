@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 
 const navLinks = [
     { name: "Tools", href: "#tools" },
@@ -144,6 +145,7 @@ export function Navbar() {
                     href="/"
                     className="flex items-center gap-2.5 text-lg font-semibold"
                 >
+                    <Logo size="sm" />
                     <span className="text-xl font-bold tracking-tight">vibe-check</span>
                 </Link>
 
