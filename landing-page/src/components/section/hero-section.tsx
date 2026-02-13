@@ -35,7 +35,23 @@ function CopyButton({ text }: { text: string }) {
 
 export function HeroSection() {
     return (
-        <section className="relative flex flex-col items-center justify-center px-6 py-20 md:py-28">
+        <section className="relative flex flex-col items-center justify-center px-6 py-20 md:py-28 overflow-hidden">
+            {/* Subtle grid background */}
+            <div
+                className="absolute inset-0 -z-10"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, var(--border) 1px, transparent 1px),
+                        linear-gradient(to bottom, var(--border) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "60px 60px",
+                    maskImage: "radial-gradient(ellipse at center, black 20%, transparent 70%)",
+                    WebkitMaskImage: "radial-gradient(ellipse at center, black 20%, transparent 70%)",
+                    opacity: 0.5,
+                }}
+            />
+            {/* Subtle glow */}
+            <div className="absolute inset-0 -z-10 bg-radial-[at_50%_40%] from-sky-500/5 via-transparent to-transparent" />
             <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-6 max-w-3xl mx-auto">
                 {/* Badge */}
                 <div className="flex items-center gap-2 px-4 py-1.5 rounded-full shadow-badge bg-card text-sm font-medium">
