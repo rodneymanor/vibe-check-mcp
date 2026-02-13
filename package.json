@@ -1,0 +1,36 @@
+{
+  "name": "vibe-check-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that keeps AI coding agents focused — pre-check, diff review, and spec tools to prevent over-building and scope creep.",
+  "type": "module",
+  "bin": {
+    "vibe-check-mcp": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "vibe-coding",
+    "scope-creep",
+    "code-review",
+    "claude",
+    "codex"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
