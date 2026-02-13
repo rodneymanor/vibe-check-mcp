@@ -1,10 +1,10 @@
 {
-  "name": "vibe-check-mcp",
+  "name": "vibe-check-cli",
   "version": "1.0.0",
   "description": "MCP server that keeps AI coding agents focused — pre-check, diff review, and spec tools to prevent over-building and scope creep.",
   "type": "module",
   "bin": {
-    "vibe-check-mcp": "./build/index.js"
+    "vibe-check-cli": "./build/index.js"
   },
   "files": [
     "build"
