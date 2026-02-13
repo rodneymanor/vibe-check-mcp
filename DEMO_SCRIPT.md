@@ -58,7 +58,7 @@ Pause. Let it breathe for 2 seconds.
 **On screen:**
 Clean terminal. Type:
 ```bash
-claude mcp add vibe-check -- npx -y vibe-check-mcp
+claude mcp add vibe-check -- npx -y mcp-vibe-check
 ```
 Output confirms:
 ```
@@ -258,7 +258,7 @@ Works with:
 **On screen:**
 Clean terminal. The install command, large and centered:
 ```
-npx -y vibe-check-mcp
+npx -y mcp-vibe-check
 ```
 
 Then text overlay:

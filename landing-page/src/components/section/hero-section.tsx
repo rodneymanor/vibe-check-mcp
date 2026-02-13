@@ -76,8 +76,8 @@ export function HeroSection() {
                 <div className="w-full max-w-md">
                     <div className="flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 font-mono text-sm">
                         <span className="text-muted-foreground select-none">$</span>
-                        <code className="flex-1 text-foreground select-all">npx -y vibe-check-mcp</code>
-                        <CopyButton text="npx -y vibe-check-mcp" />
+                        <code className="flex-1 text-foreground select-all">npx -y mcp-vibe-check</code>
+                        <CopyButton text="npx -y mcp-vibe-check" />
                     </div>
                 </div>
 

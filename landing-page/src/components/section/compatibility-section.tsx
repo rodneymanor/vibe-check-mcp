@@ -30,7 +30,7 @@ export function CompatibilitySection() {
                         <div className="space-y-2">
                             <h3 className="text-sm font-semibold text-foreground">Claude Code (recommended)</h3>
                             <div className="rounded-lg border border-border bg-card px-4 py-3 font-mono text-sm text-muted-foreground">
-                                claude mcp add vibe-check -- npx -y vibe-check-mcp
+                                claude mcp add vibe-check -- npx -y mcp-vibe-check
                             </div>
                         </div>
 
@@ -38,7 +38,7 @@ export function CompatibilitySection() {
                         <div className="space-y-2">
                             <h3 className="text-sm font-semibold text-foreground">npx (any MCP client)</h3>
                             <div className="rounded-lg border border-border bg-card px-4 py-3 font-mono text-sm text-muted-foreground">
-                                npx -y vibe-check-mcp
+                                npx -y mcp-vibe-check
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@ export function CompatibilitySection() {
   "mcpServers": {
     "vibe-check": {
       "command": "npx",
-      "args": ["-y", "vibe-check-mcp"]
+      "args": ["-y", "mcp-vibe-check"]
     }
   }
 }`}</div>

@@ -370,7 +370,7 @@ export const siteConfig = {
         description: "Get started in 30 seconds. No API keys. No accounts. No network calls.",
         step1: {
             title: "Install the MCP server",
-            description: "One command: claude mcp add vibe-check -- npx -y vibe-check-mcp. That's it. Your agent now has guardrails.",
+            description: "One command: claude mcp add vibe-check -- npx -y mcp-vibe-check. That's it. Your agent now has guardrails.",
         },
         step2: {
             title: "Initialize your project",
@@ -601,7 +601,7 @@ export const siteConfig = {
                     "One command install",
                     "Auto-workflow rules",
                     "Works with Claude Code CLI",
-                    "npx -y vibe-check-mcp",
+                    "npx -y mcp-vibe-check",
                 ],
                 description: "Recommended for most developers",
                 buttonText: "View Install Guide",
@@ -647,7 +647,7 @@ export const siteConfig = {
     faqSection: {
         title: "Frequently Asked Questions",
         description:
-            "Common questions about vibe-check-mcp.",
+            "Common questions about vibe-check.",
         faQitems: [
             {
                 id: 1,
@@ -712,7 +712,7 @@ export const siteConfig = {
             links: [
                 { id: 5, title: "Documentation", url: "https://github.com/rodneymanor/vibe-check-mcp#readme" },
                 { id: 6, title: "MCP Protocol", url: "https://modelcontextprotocol.io" },
-                { id: 7, title: "npm Package", url: "https://www.npmjs.com/package/vibe-check-mcp" },
+                { id: 7, title: "npm Package", url: "https://www.npmjs.com/package/mcp-vibe-check" },
                 { id: 8, title: "Issues", url: "https://github.com/rodneymanor/vibe-check-mcp/issues" },
             ],
         },

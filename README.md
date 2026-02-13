@@ -2,7 +2,7 @@
 [![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9C%93-brightgreen.svg)](https://github.com/rodneymanor/vibe-check-mcp)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-purple.svg)](https://modelcontextprotocol.io)
 
-# vibe-check-mcp
+# vibe-check
 
 **"You asked for a button. Your AI agent refactored the entire app."**
 
@@ -60,7 +60,7 @@ Your AI agent delivers:
 **One command. 30 seconds. Done.**
 
 ```bash
-claude mcp add vibe-check -- npx -y vibe-check-mcp
+claude mcp add vibe-check -- npx -y mcp-vibe-check
 ```
 
 Then in any project:
@@ -129,7 +129,7 @@ All tools use **file scanning** and **hardcoded heuristics** — no LLM calls, n
 ### Claude Code (recommended)
 
 ```bash
-claude mcp add vibe-check -- npx -y vibe-check-mcp
+claude mcp add vibe-check -- npx -y mcp-vibe-check
 ```
 
 ### Claude Code (local clone)
@@ -147,7 +147,7 @@ Add to `~/.codex/config.toml`:
 ```toml
 [mcp_servers.vibe-check]
 command = "npx"
-args = ["-y", "vibe-check-mcp"]
+args = ["-y", "mcp-vibe-check"]
 ```
 
 ### Claude Desktop
@@ -159,7 +159,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "vibe-check": {
       "command": "npx",
-      "args": ["-y", "vibe-check-mcp"]
+      "args": ["-y", "mcp-vibe-check"]
     }
   }
 }
